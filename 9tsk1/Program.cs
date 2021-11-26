@@ -17,9 +17,9 @@ namespace _9tsk1
              */
             Console.WriteLine("Простой калькулятор");            
             Console.WriteLine("Введите целое число ");
-            int x = Convert.ToInt32(Console.ReadLine());
+            double x = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите целое число ");
-            int y = Convert.ToInt32(Console.ReadLine());
+            double y = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine(@"Выберите арифметическое действие:
                   - Сложение (введите 1)
                   - Вычитание (введите 2)
@@ -42,7 +42,15 @@ namespace _9tsk1
                 }
                 else if (d=="4")
                 {
-                    Console.WriteLine("Результат деления двух чисел {0}", x/y);
+                    double z = x % y;
+                    if (z==0)
+                    {
+                        Console.WriteLine("Результат деления двух чисел {0}", x / y);
+                    }
+                    else if (z>0)
+                    {
+                        Console.WriteLine("Деление не целочисленное");
+                    }
                 }
                 else
                 {
@@ -53,6 +61,13 @@ namespace _9tsk1
             {
                 Console.WriteLine(ex.Message);
             }
+            /*catch
+            {
+                if (x%y>0)
+                {
+                    Console.WriteLine("Деление не целочисленное");
+                }
+            }*/
                 
             Console.ReadKey();
 
